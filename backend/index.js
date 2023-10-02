@@ -13,12 +13,12 @@ app.use(express.json());
 app.use(cors({ origin: "*" }));
 
 const _dirname = path.dirname("");
-const buildPath = path.join(_dirname, "../frontend/build");
+const buildPath = path.join(_dirname, "./build");
 app.use(express.static(buildPath));
 
 app.get("/*", (req, res) => {
   res.sendFile(
-    path.join(__dirname, "../frontend/build/index.html"),
+    path.join(__dirname, "./build/index.html"),
     function (err) {
       if (err) {
         res.status(500).send(err);
